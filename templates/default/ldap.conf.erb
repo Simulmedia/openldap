@@ -5,7 +5,7 @@
 #
 
 host <%= node['openldap']['server'] %>
-port 389
+port <%= node['openldap']['port'] %>
 bind_policy soft
 
 ldap_version 3

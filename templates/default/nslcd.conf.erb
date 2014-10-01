@@ -3,12 +3,17 @@
 #
 # Managed by Chef
 
-uri ldap://<%= node['openldap']['server'] %>
+uri ldap://<%= node['openldap']['server'] %>:<%= node['openldap']['port'] %>
 base <%= node['openldap']['basedn'] %>
 scope sub
 
 ssl start_tls
+<% if node['openldap']['tls_checkpeer'] -%>
 tls_reqcert demand
+<% else -%>
+tls_reqcert never
+<% end -%>
+
 <% if node['openldap']['cafile'] -%>
 tls_cacertfile <%= node['openldap']['cafile'] %>
 <% end -%>
