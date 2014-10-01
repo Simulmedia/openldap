@@ -7,7 +7,10 @@ uri ldap://<%= node['openldap']['server'] %>:<%= node['openldap']['port'] %>
 base <%= node['openldap']['basedn'] %>
 scope sub
 
+<% if node['openldap']['tls_enabled'] -%>
 ssl start_tls
+<% end -%>
+
 <% if node['openldap']['tls_checkpeer'] -%>
 tls_reqcert demand
 <% else -%>

@@ -9,6 +9,11 @@
 
 URI    ldap://<%= node['openldap']['server'] %>:<%= node['openldap']['port'] %>
 BASE <%= node['openldap']['basedn'] %>
+
+<% if node['openldap']['tls_enabled'] -%>
+ssl start_tls
+<% end -%>
+
 <% if node['openldap']['cafile'] -%>
 TLS_CACERT <%= node['openldap']['cafile'] %>
 <% end -%>
