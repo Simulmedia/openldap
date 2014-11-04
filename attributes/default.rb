@@ -44,7 +44,7 @@ when 'redhat', 'centos', 'amazon', 'scientific'
   default['openldap']['module_dir']         = '/usr/lib64/openldap'
 else
   default['openldap']['packages']['client'] = %w{ldap-utils}
-  default['openldap']['packages']['auth']   = %w{libpam-ldapd libnss-ldapd}
+  default['openldap']['packages']['auth']   = %w{libpam-ldapd libnss-ldapd nslcd}
   default['openldap']['dir']                = '/etc/ldap'
   default['openldap']['run_dir']            = '/var/run/slapd'
   default['openldap']['module_dir']         = '/usr/lib/ldap'
