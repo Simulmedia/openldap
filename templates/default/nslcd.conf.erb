@@ -21,6 +21,8 @@ tls_reqcert never
 tls_cacertfile <%= node['openldap']['cafile'] %>
 <% end -%>
 
+idle_timelimit <%= node['openldap']['idle_timelimit'] %>
+
 <% node['openldap']['auth_filters'].each do |mapping, filterstring| %>
 filter <%= mapping %> <%= filterstring %>
 <% end %>
